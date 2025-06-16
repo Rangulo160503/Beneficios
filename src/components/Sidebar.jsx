@@ -3,38 +3,45 @@ import { assets } from "../assets/assets";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+
   return (
     <div className="w-[25%] h-full p-2 flex-col gap-2 text-white hidden lg:flex">
-      <div className="bg-[#121212] h-[15%] rounded flex flex-col justify-around">
-        <div onClick={()=>navigate('/')} className="flex items-center gap-3 pl-8 cursor-pointer">
-          <img className="w-6" src={assets.home_icon} alt="" />
-          <p className="font-b old">Home</p>
+      {/* Navegación principal */}
+      <div className="bg-[#121212] rounded h-[15%] flex flex-col justify-around shadow p-4">
+        <div
+          onClick={() => navigate("/")}
+          className="flex items-center gap-3 cursor-pointer hover:text-green-400"
+        >
+          <img className="w-6 filter invert" src={assets.home_icon} alt="Inicio" />
+          <p className="font-bold">Inicio</p>
         </div>
-        <div className="flex items-center gap-3 pl-8 cursor-pointer">
-          <img className="w-6" src={assets.search_icon} alt="" />
-          <p className="font-b old">Search</p>
-        </div>
+
+        <div className="flex items-center gap-3 mt-2">
+    <img className="w-6 filter invert" src={assets.search_icon} alt="Buscar" />
+    <input
+      type="text"
+      placeholder="Buscar"
+      className="bg-transparent placeholder-white text-white font-bold outline-none border-none focus:outline-none focus:ring-0"
+      onChange={(e) => console.log("Buscar:", e.target.value)} // reemplazar luego por setBusqueda si se usa contexto
+    />
+  </div>
       </div>
-      <div className="bg-[#121212] h-[85%] rounded">
-        <div className="p-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img className="w-8" src={assets.stack_icon} alt="stack_icon" />
-            <p className="font-semibold">Your Libary</p>
-          </div>
-          <div className="flex items-center gap-3">
-            <img className="w-5" src={assets.plus_icon} alt="plus_icon" />
-            <img className="w-5" src={assets.arrow_icon} alt="arrow_icon" />
-          </div>
-        </div>
-        <div className="p-4 bg-[#242424] m-2 rounded font-semibold flex flex-col items-start justify-start gap-1 pl-4">
-            <h1>Create Your first playlist</h1>
-            <p className="font-light">it's easy we will help you</p>
-            <button className="px-4 py-1.5 bg-white text-[15px] text-black rounded-full mt-4">Create Playlist</button>
-        </div>
-        <div className="p-4 bg-[#242424] m-2 rounded font-semibold flex flex-col items-start justify-start gap-1 pl-4 mt-4">
-            <h1>Let's find some podcasts to follow</h1>
-            <p className="font-light">We'll keep you updated on new episodes</p>
-            <button className="px-4 py-1.5 bg-white text-[15px] text-black rounded-full mt-4">Browse podcasts</button>
+
+      {/* Título externo */}
+      <div className="px-4">
+        <h1 className="my-5 font-bold text-2xl">Tus Catálogos</h1>
+              </div>
+      <div>
+
+        {/* Fondo ahora coincide con look Spotify */}
+        <div className="bg-[#121212] rounded px-4 py-4">
+          <button className=" bg-white text-black px-4 py-1 rounded-full font-bold text-sm hover:bg-opacity-90">
+            Crear nuevo catálogo
+          </button>
+
+          <p className="text-slate-200 text-xs mt-4 leading-5">
+            Guardá beneficios que te interesen para revisarlos más tarde.
+          </p>
         </div>
       </div>
     </div>
