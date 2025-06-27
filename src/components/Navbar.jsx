@@ -1,5 +1,6 @@
 import { assets } from "../assets/assets";
 
+
 const Navbar = () => {
   return (
     <div className="flex flex-col gap-2 mb-4">
@@ -7,9 +8,9 @@ const Navbar = () => {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           <img
-            src={assets.spotify_logo} // reemplazable luego por el logo de Benefix
-            alt="logo"
-            className="w-8"
+            src={assets.nowdigital_logo} // reemplazable luego por el logo de Benefix
+            alt="Nowdigital logo"
+            className="w-40 h-40 object-contain"
           />
           <h1 className="text-white font-bold text-xl mb-2">Benefix</h1>
         </div>
